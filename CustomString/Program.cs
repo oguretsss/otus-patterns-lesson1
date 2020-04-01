@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomString.Abstract;
+using System;
 
 namespace CustomString
 {
@@ -6,12 +7,22 @@ namespace CustomString
   {
     private static void Main(string[] args)
     {
-      var a = "Hello";
-      Console.WriteLine(a);
-      string b = a.Substring(5);
-      Console.WriteLine(b);
-      string c = a.Substring(1, 0);
-      Console.WriteLine(c);
+      Console.WriteLine("Creating a stack");
+      Stack<IStringPresenter> stack = new Stack<IStringPresenter>();
+
+      String a = new String(new char[] { 'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 's', 't', 'r', 'i', 'n', 'g', '!' });
+      StringUtil aModifier = new StringUtil(a);
+      stack.Push(a);
+      Console.WriteLine($"First Object in stack: {stack.Peek()} of type {stack.Peek().GetType()}");
+      stack.Push(aModifier.SubString(10));   // string!
+      stack.Push(aModifier.SubString(8, 1)); // a
+      stack.Push(aModifier.SubString(5, 2)); // is
+      stack.Push(aModifier.SubString(0, 4)); // This
+      stack.Push(aModifier);
+      Console.WriteLine($"Top Object in stack: {stack.Peek()} of type {stack.Peek().GetType()}");
+      Console.WriteLine("Full stack conetnt:\n");
+      /// Show stack contents
+      stack.ViewContents();
     }
   }
 }
