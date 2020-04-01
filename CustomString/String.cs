@@ -7,7 +7,7 @@ namespace CustomString
 {
   public class String : IStringPresenter
   {
-    public char[] Contents { get; set; }
+    public char[] Contents { get; private set; }
 
     public int Length { get => Contents.Length; }
 

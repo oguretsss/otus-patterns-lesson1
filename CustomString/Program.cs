@@ -23,6 +23,7 @@ namespace CustomString
       Console.WriteLine("Full stack conetnt:\n");
       /// Show stack contents
       stack.ViewContents();
+      Console.ReadKey();
     }
   }
 }
